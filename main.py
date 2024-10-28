@@ -10,7 +10,7 @@ import os
 from tkinter import *
 
 # Tempo de espera do script começar (3 segundos).
-time.sleep(1.5)
+time.sleep(1)
 
 ### =================== FUNCAO TEMP =================== ###
 def temp():
@@ -262,11 +262,3 @@ botao_apagartudo = Button(JanelaPrincipal, text="Apagar Todos", command=apagar_t
 botao_apagartudo.grid(column=0, row=6)
 
 JanelaPrincipal.mainloop()
-
-
-
-
-
-
-
-
