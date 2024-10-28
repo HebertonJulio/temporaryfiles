@@ -270,5 +270,3 @@ JanelaPrincipal.mainloop()
 
 
 
-
-
