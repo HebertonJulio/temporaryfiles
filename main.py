@@ -260,5 +260,5 @@ botao_apagarlixeira.grid(column=0, row=5)
 
 botao_apagartudo = Button(JanelaPrincipal, text="Apagar Todos", command=apagar_tudo)
 botao_apagartudo.grid(column=0, row=6)
-
+#
 JanelaPrincipal.mainloop()
