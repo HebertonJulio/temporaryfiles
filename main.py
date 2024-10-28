@@ -7,6 +7,7 @@
 import time
 import pyautogui
 import os
+from tkinter import *
 
 # Tempo de espera do script começar (3 segundos).
 time.sleep(1.5)
@@ -233,67 +234,34 @@ def apagar_tudo():
     recent()
     apagar_lixeira()
 
+JanelaPrincipal = Tk()
+
+JanelaPrincipal.title("Limpar Arquivos")
+JanelaPrincipal.geometry("50x50")
+
+TextoInicial = Label(JanelaPrincipal, text="Limpeza de Arquivos Temporarios\n Escolha um diretório para excluir.\n=========================")
+TextoInicial.grid(column=0, row=0,padx=10,pady=10)
 
 
-### ======== HOME ======== ###
-print("Script | Delete temporary files")
-print("=" * 40)
+botao_temp = Button(JanelaPrincipal, text="Temp", command=temp)
+botao_temp.grid(column=0, row=1)
 
-### ======== OPCOES PARA O USUARIO ======== ### 
-diretorios = {
-    #numero     #nome
-    1:          '1) Temp' ,  
-    2:          '2) Tempdirectory',
-    3:          '3) Prefetch',
-    4:          '4) Recent',
-    5:          '5) Lixeira',
-    6:          '6) Apagar tudo.',
-}
+botao_tempadm = Button(JanelaPrincipal, text="%Temp%", command=temp_directory)
+botao_temp.grid(column=0, row=2)
 
-# A cada Numero na lista diretorios, o python ira imprimir o nome até chegar no ultimo da lista.
-for numero, nome in diretorios.items():
-    print(nome)
+botao_prefetch = Button(JanelaPrincipal, text="Prefetch", command=prefetch)
+botao_prefetch.grid(column=0, row=3)
 
+botao_recent = Button(JanelaPrincipal, text="Recent", command=recent)
+botao_recent.grid(column=0, row=4)
 
-# ======= PEDE AO USUARIO QUE ESCOLHA UMA OPCAO DENTRO DO SCRIPT. ======= #
-while True:
-    try:
-        resposta = int(input("Informe um número entre 1 a 6: "))
-        if resposta == 1:
-            pyautogui.hotkey('win', 'd')
-            time.sleep(1)           
-            temp()
-            break 
-        elif resposta == 2:
-            pyautogui.hotkey('win', 'd') 
-            time.sleep(1)
-            temp_directory()
-            break 
-        elif resposta == 3:
-            pyautogui.hotkey('win', 'd')
-            time.sleep(1)
-            prefetch()
-        elif resposta == 4:
-            pyautogui.hotkey('win', 'd')
-            time.sleep(1)
-            recent()
-            break
-        elif resposta == 5:
-            pyautogui.hotkey('win', 'd')
-            time.sleep(1)
-            apagar_lixeira()
-            break
-        elif resposta == 6:
-            pyautogui.hotkey('win', 'd')
-            time.sleep(1)
-            apagar_tudo()
-            break
-        else:
-            print("Escolha uma opçao válida entre 1 a 6")
-    except ValueError: 
-        print("Entrada inválida, por favor, insira apenas números de 1 a 6...")
+botao_apagarlixeira = Button(JanelaPrincipal, text="Apagar Lixeira", command=apagar_lixeira)
+botao_apagarlixeira.grid(column=0, row=5)
 
+botao_apagartudo = Button(JanelaPrincipal, text="Apagar Todos", command=apagar_tudo)
+botao_apagartudo.grid(column=0, row=6)
 
+JanelaPrincipal.mainloop()
 
 
 
